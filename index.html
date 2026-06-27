@@ -1,22 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Resonate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonate Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0d0d0d;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #e0e0e0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #1a1a1a;
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 150, 255, 0.08);
+            border: 1px solid #2a2a2a;
+        }
+        h1 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: #88aaff;
+            font-size: 16px;
+            margin-bottom: 25px;
+            border-left: 3px solid #3a6eff;
+            padding-left: 14px;
+            background: #111827;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.5;
+        }
+        .banner {
+            background: #0f0f1a;
+            border: 1px dashed #2a4a7a;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #b0caff;
+            font-size: 14px;
+        }
+        .banner img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            background: #111;
+            padding: 4px;
+        }
+        .desc {
+            background: #121212;
+            padding: 18px 20px;
+            border-radius: 10px;
+            line-height: 1.7;
+            font-size: 16px;
+            margin-bottom: 25px;
+            border-left: 4px solid #3a6eff;
+        }
+        .desc strong {
+            color: #88ccff;
+        }
+        .download-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(145deg, #1a4cff, #0d2bb3);
+            color: #fff;
+            text-align: center;
+            padding: 18px 10px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            margin: 20px 0 18px 0;
+            box-shadow: 0 6px 0 #091b6e;
+            transition: 0.08s linear;
+            border: 1px solid #3a6eff;
+        }
+        .download-btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 0px 0 #091b6e;
+        }
+        .download-btn small {
+            font-size: 14px;
+            font-weight: normal;
+            display: block;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            font-size: 14px;
+            border-top: 1px solid #282828;
+            padding-top: 20px;
+            margin-top: 6px;
+            gap: 12px;
+        }
+        .meta a {
+            color: #77aaff;
+            text-decoration: none;
+            border-bottom: 1px dashed #2a4a7a;
+        }
+        .meta a:hover {
+            color: #aaccff;
+            border-bottom: 1px solid #77aaff;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px 25px;
+            font-size: 15px;
+            padding: 14px 0 4px 0;
+        }
+        .footer-links a {
+            color: #88aadd;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            color: #bbddff;
+            text-decoration: underline;
+        }
+        .thanks {
+            font-size: 13px;
+            color: #556688;
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid #222;
+            margin-top: 18px;
+        }
+        .thanks a {
+            color: #6688bb;
+            text-decoration: none;
+        }
+        .thanks a:hover {
+            color: #88aadd;
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .container { padding: 18px 14px; }
+            h1 { font-size: 26px; }
+            .download-btn { font-size: 20px; padding: 16px 10px; }
+            .desc { font-size: 15px; padding: 14px; }
+            .meta { flex-direction: column; align-items: center; text-align: center; }
+            .footer-links { gap: 12px; font-size: 14px; }
+        }
+        @media (max-width: 400px) {
+            h1 { font-size: 22px; }
+            .download-btn { font-size: 17px; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Resonate Browser</h1>
-    <br>
-    <form action="https://www.google.com/search" method="get">
-        <input type="text" name="q" size="30" placeholder="Search...">
-        <input type="submit" value="Go">
-    </form>
-    <br>
-    <a href="http://www.google.com">Google</a><br>
-    <a href="http://www.youtube.com">YouTube</a><br>
-    <a href="http://www.reddit.com">Reddit</a><br>
-    <a href="http://duckduckgo.com">DuckDuckGo</a>
-    <br><br>
-    <font color="gray">Resonate Browser v1.0.12</font>
+    <div class="container">
+
+        <h1>RESONATE</h1>
+        <div class="subtitle">
+            Легкий клиент для старых устройств!
+        </div>
+
+        <div class="banner">
+            <img src="https://via.placeholder.com/760x120/0d1a2b/5588dd?text=Resonate+for+DroidMarket" alt="Resonate banner" style="max-width:100%;">
+        </div>
+
+        <div class="desc">
+            <strong>Resonate</strong> - это минималистичный клиент для <strong>DroidMarket</strong>.
+            Создан для тех, кто ценит скорость, стабильность и простоту.
+            <br><br>
+            <strong>Что внутри:</strong><br>
+            Быстрый доступ к каталогу<br>
+            Удобная навигация<br>
+            Минимум нагрузки на устройство<br>
+            Работает на Android 4.0+
+            <br><br>
+            Проект открытый и развивается благодаря сообществу.
+            <br>
+            Подключайся к Telegram-каналу, чтобы следить за обновлениями.
+        </div>
+
+        <a href="#" class="download-btn" id="downloadBtn">
+            СКАЧАТЬ RESONATE.APK
+            <small>версия 1.0 • Android 4.0+</small>
+        </a>
+
+        <div class="footer-links">
+            <a href="https://t.me/resonatesourse" target="_blank">Telegram канал</a>
+            <a href="http://droidmarket.store/" target="_blank">DroidMarket</a>
+            <a href="mailto:resonateintegrated@gmail.com">Email</a>
+        </div>
+
+        <div class="thanks">
+            Благодарность за хостинг клиента -
+            <a href="http://droidmarket.store/" target="_blank">droidmarket.store</a>
+            <br>
+            <span style="opacity:0.5;font-size:12px;">Resonate 2026</span>
+        </div>
+
+        <div class="meta">
+            <span>Сайт работает на <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></span>
+            <span><a href="https://t.me/resonatesourse" target="_blank">@resonatesourse</a></span>
+            <span><a href="mailto:resonateintegrated@gmail.com">resonateintegrated@gmail.com</a></span>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'resonate.apk';
+        });
+    </script>
+
 </body>
 </html>
