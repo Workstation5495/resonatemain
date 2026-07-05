@@ -3,70 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resonate Store Легкий клиент для Android</title>
+    <title>Resonate Store</title>
     <style>
-        /* Делаем так, чтобы таблица всегда помещалась на экран телефона */
-        .container {
-            width: 95%;
-            max-width: 600px;
-            background: #ffffff;
-            border: 3px solid #000000;
-            margin: 20px auto; /* Центрируем на ПК */
+        body {
+            background-color: #333333; /* Holo Dark background */
+            color: #ffffff;
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
         }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            background: #1e1e1e;
+        }
+        .header {
+            background: url('img2.jpg') no-repeat center;
+            background-size: cover;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #33b5e5; /* Android Blue accent */
+        }
+        .app-card {
+            background: #2b2b2b;
+            padding: 15px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #444;
+        }
+        .content { padding: 15px; }
+        .download-btn {
+            background: #33b5e5;
+            color: #000;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+        .footer {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+        a { color: #33b5e5; }
     </style>
 </head>
-<body bgcolor="#c0c0c0" text="#000000" style="font-family: 'Times New Roman', serif; margin: 0; padding: 0;">
+<body>
 
-<table class="container" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-        <td bgcolor="#000080" align="center" style="padding: 20px; color: #ffffff; font-size: 24px; font-weight: bold;">
-            RESONATE STORE
-        </td>
-    </tr>
-    <tr>
-        <td bgcolor="#d3d3d3" align="center" style="padding: 10px; border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
-            <a href="#">Главная</a> | 
-            <a href="https://t.me/resonatesourse">Telegram</a> | 
-            <a href="http://droidmarket.store/">Благодарности</a>
-        </td>
-    </tr>
-    <tr>
-        <td style="padding: 20px; font-size: 14px;">
-            <h2 style="color: #000080; margin-top: 0;">Добро пожаловать в Resonate Store!</h2>
-            <p><b>Resonate Store</b> — это проект, созданный для того, чтобы вдохнуть жизнь в старые Android-устройства. Мы стремимся к максимальной совместимости и скорости работы, каталог из 1000+ приложений.</p>
-            
-            <h3>Почему выбирают нас:</h3>
-            <ul>
-                <li><b>Легкость:</b> Минимальное использование оперативной памяти.</li>
-                <li><b>Совместимость:</b> Полная поддержка устройств на базе Android 1.6 и выше.</li>
-                <li><b>Безопасность:</b> Отсутствие лишних трекеров.</li>
-            </ul>
+<div class="container">
+    <div class="header">
+        <h1 style="text-shadow: 2px 2px 4px #000;">RESONATE STORE PROJECT</h1>
+    </div>
 
-            <h3 style="color: #000080;">Как установить:</h3>
-            <ol>
-                <li>Скачайте APK-файл по кнопке ниже.</li>
-                <li>В настройках телефона разрешите установку из "Неизвестных источников".</li>
-                <li>Запустите скачанный файл и следуйте инструкциям на экране.</li>
-            </ol>
+    <div class="app-card">
+        <img src="img1.png" width="64" height="64" style="margin-right: 15px;">
+        <div>
+            <h2 style="margin: 0;">Resonate Store</h2>
+            <p style="margin: 0; font-size: 12px;">Min API: 2.1 (Eclair)</p>
+        </div>
+    </div>
 
-            <br>
-            <table width="100%" bgcolor="#000080" border="0" cellpadding="15" cellspacing="0">
-                <tr>
-                    <td align="center">
-                        <a href="resonate.apk" style="color: #ffffff; font-size: 20px; font-weight: bold; text-decoration: none;">СКАЧАТЬ RESONATE.APK</a>
-                        <div style="color: #ffffff; font-size: 12px; margin-top: 5px;">1.0.26 Release</div>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td bgcolor="#d3d3d3" align="center" style="padding: 10px; font-size: 12px; border-top: 2px solid #000000;">
-            &copy; 2026 Resonate Store Project<br>
-            По вопросам сотрудничества: <a href="mailto:resonateintegrated@gmail.com">resonateintegrated@gmail.com</a>
-        </td>
-    </tr>
-</table>
+    <div class="content">
+        <h3>О клиенте</h3>
+        <p>Resonate Store — это легкий клиент для старых Android-устройств. Мы обеспечиваем доступ к современному контенту на легендарных версиях ОС.</p>
+        
+        <a href="resonate.apk" class="download-btn">УСТАНОВИТЬ</a>
+    </div>
+
+    <div class="footer">
+        <p>
+            <a href="#">Главная</a> | <a href="https://t.me/resonatesourse">Telegram</a> | <a href="#">Благодарности</a>
+        </p>
+        <p>&copy; 2026 Resonate Store Project</p>
+        <p>Почта: <a href="mailto:resonateintegrated@gmail.com">resonateintegrated@gmail.com</a></p>
+    </div>
+</div>
 
 </body>
 </html>
