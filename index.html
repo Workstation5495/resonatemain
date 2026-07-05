@@ -16,19 +16,15 @@
             background-color: #f3f3f3;
             color: #333333;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
         }
 
-        /* Жесткая фиксация под размеры экрана телефона (адаптивность) */
+        /* Адаптивный контейнер: на ПК во всю ширину, на телефонах под размер экрана */
         .wrapper {
             width: 100%;
-            max-width: 480px;
             background-color: #f3f3f3;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 0 8px rgba(0,0,0,0.2);
         }
 
         /* Починенная верхняя панель (Иконка img1 + Текст) */
@@ -99,7 +95,7 @@
             white-space: nowrap;
         }
 
-        /* Исправленная кнопка скачивания строго по размерам из Google Play */
+        /* Кнопка строго прямоугольная с серой обводкой */
         .install-btn {
             background-color: #25728a;
             color: #ffffff;
@@ -107,8 +103,8 @@
             padding: 6px 14px;
             font-size: 13px;
             font-weight: bold;
-            border: 1px solid #3fa5c4;
-            border-radius: 2px;
+            border: 1px solid #aaaaaa; /* Серая обводка кнопки */
+            border-radius: 0px; /* Строго прямоугольная */
             text-align: center;
             flex-shrink: 0;
             user-select: none;
@@ -142,7 +138,7 @@
             padding-bottom: 2px;
         }
 
-        /* Список в секции разработчика */
+        /* Унифицированные кликабельные строки в секции разработчика */
         .dev-info-row {
             display: block;
             padding: 10px 4px;
@@ -155,11 +151,6 @@
         .dev-info-row:active {
             background-color: #e0e0e0;
         }
-
-        .dev-info-title {
-            color: #25728a;
-            margin-bottom: 20px;
-        }
         
         .dev-info-row div {
             margin-bottom: 2px;
@@ -170,12 +161,12 @@
             font-size: 11.5px;
         }
 
-        .dev-info-sub a {
+        /* Синий цвет для активных ссылок */
+        .link-text {
             color: #25728a;
-            text-decoration: none;
         }
 
-        /* Починенный подвал */
+        /* Подвал */
         .footer {
             text-align: center;
             padding: 15px;
@@ -221,18 +212,18 @@
             <div class="section-title">Разработчик</div>
             
             <a href="http://droidmarket.store/" class="dev-info-row" target="_blank">
-                <div style="color: #25728a;">Посетить веб-сайт</div>
+                <div class="link-text">Посетить веб-сайт</div>
                 <div class="dev-info-sub">http://droidmarket.store/</div>
             </a>
 
-            <div class="dev-info-row">
+            <a href="mailto:resonateintegrated@gmail.com" class="dev-info-row">
                 <div>Адрес эл. почты</div>
-                <div class="dev-info-sub"><a href="mailto:resonateintegrated@gmail.com">resonateintegrated@gmail.com</a></div>
-            </div>
+                <div class="dev-info-sub link-text">resonateintegrated@gmail.com</div>
+            </a>
 
             <a href="https://t.me/resonatesourse" class="dev-info-row" target="_blank">
                 <div>Сообщество</div>
-                <div class="dev-info-sub" style="color: #25728a;">Telegram канал проекта</div>
+                <div class="dev-info-sub link-text">Telegram канал проекта</div>
             </a>
 
         </div>
