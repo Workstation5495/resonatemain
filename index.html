@@ -5,36 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resonate Store</title>
     <style>
-        /* Общие стили старого Android Android 4.x (ICS/Jelly Bean) */
+        /* Базовые стили под старый Android */
         body {
             margin: 0;
             padding: 0;
-            background-color: #f3f3f3; /* Светло-серый фон страницы из оригинального маркета */
+            background-color: #f3f3f3;
             color: #333333;
             font-family: Arial, sans-serif;
         }
 
-        /* Верхняя панель (текстура шапки img2) */
+        /* Ограничитель ширины, чтобы сайт идеально смотрелся на любых экранах */
+        .page-container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #f3f3f3;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Верхняя панель с иконкой img1 и текстом */
         .top-bar {
-            background-image: url('img2.jpg');
-            background-repeat: repeat;
-            padding: 12px 15px;
+            background-color: #1a1a1a; /* Строгий темный цвет оригинального маркета */
+            padding: 10px 15px;
             color: #ffffff;
             font-size: 18px;
             font-weight: bold;
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            border-bottom: 1px solid #000000;
+        }
+
+        .top-bar-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            object-fit: cover;
         }
 
         /* Главный блок приложения (темная плашка) */
         .app-header-block {
-            background-color: #2c2c2c; /* Темно-серый фон плашки приложения */
+            background-color: #2c2c2c;
             padding: 15px;
             display: flex;
             align-items: center;
-            position: relative;
-            border-bottom: 4px solid #94ab3a; /* Та самая зеленая полоса снизу плашки */
+            border-bottom: 4px solid #94ab3a; /* Зеленая полоса */
         }
 
         .app-icon {
@@ -62,9 +79,9 @@
             text-transform: uppercase;
         }
 
-        /* Кнопка "Установить" в стиле старого Google Play */
+        /* Кнопка "Установить" */
         .install-btn {
-            background-color: #25728a; /* Сине-голубой градиент/цвет кнопки */
+            background-color: #25728a;
             color: #ffffff;
             text-decoration: none;
             padding: 8px 16px;
@@ -75,10 +92,10 @@
             white-space: nowrap;
         }
 
-        /* Секции контента (Описание, Что нового, Разработчик) */
+        /* Контентные секции */
         .content-section {
             padding: 15px;
-            background: #f3f3f3;
+            flex-grow: 1;
         }
 
         .description-text {
@@ -89,7 +106,7 @@
         }
 
         .section-title {
-            color: #94ab3a; /* Зеленый заголовок секции */
+            color: #94ab3a;
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
@@ -98,7 +115,7 @@
             padding-bottom: 3px;
         }
 
-        /* Список внутри секции разработчика */
+        /* Строки в инфо разработчика */
         .dev-info-row {
             display: flex;
             align-items: center;
@@ -113,7 +130,7 @@
         }
 
         .dev-info-text {
-            margin-left: 10px;
+            margin-left: 5px;
         }
 
         .dev-info-sub {
@@ -129,66 +146,71 @@
             font-size: 11px;
             color: #666666;
             border-top: 1px solid #dbdbdb;
-            margin-top: 30px;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        RESONATE STORE PROJECT
-    </div>
-
-    <div class="app-header-block">
-        <img src="img1.png" alt="Icon" class="app-icon">
+    <div class="page-container">
         
-        <div class="app-title-box">
-            <h1>Resonate Store</h1>
-            <p>Версия 1.0.26 / API 2.1</p>
+        <div class="top-bar">
+            <img src="img1.png" alt="Icon" class="top-bar-icon">
+            Resonate Store Project
         </div>
 
-        <a href="resonate.apk" class="install-btn">Установить</a>
-    </div>
-
-    <div class="content-section">
-        
-        <div class="description-text">
-            Легкий и быстрый клиент, созданный для того, чтобы вдохнуть жизнь в старые Android-устройства. Мы стремимся к максимальной совместимости, скорости работы и безопасности.
-        </div>
-
-        <div class="section-title">Что нового</div>
-        <div class="description-text" style="margin-top: 5px;">
-            Стабильный релиз клиента. Оптимизация интерфейса под экраны старых поколений, исправление ошибок подключения и улучшенная скорость загрузки.
-        </div>
-
-        <div class="section-title">Разработчик</div>
-        
-        <div class="dev-info-row">
-            <div class="dev-info-text">
-                <div><a href="#">Посетить веб-сайт</a></div>
-                <div class="dev-info-sub">http://droidmarket.store/</div>
+        <div class="app-header-block">
+            <img src="img1.png" alt="Icon" class="app-icon">
+            
+            <div class="app-title-box">
+                <h1>Resonate Store</h1>
+                <p>Версия 1.0.26 / API 2.1</p>
             </div>
+
+            <a href="resonate.apk" class="install-btn">Установить</a>
         </div>
 
-        <div class="dev-info-row">
-            <div class="dev-info-text">
-                <div>Адрес эл. почты</div>
-                <div class="dev-info-sub"><a href="mailto:resonateintegrated@gmail.com">resonateintegrated@gmail.com</a></div>
+        <div class="content-section">
+            
+            <div class="description-text">
+                Легкий и быстрый клиент, созданный для того, чтобы вдохнуть жизнь в старые Android-устройства. Мы стремимся к максимальной совместимости, скорости работы и безопасности.
             </div>
-        </div>
 
-        <div class="dev-info-row">
-            <div class="dev-info-text">
-                <div>Сообщество</div>
-                <div class="dev-info-sub"><a href="https://t.me/resonatesourse" target="_blank">Telegram канал проекта</a></div>
+            <div class="section-title">Что нового</div>
+            <div class="description-text" style="margin-top: 5px;">
+                Стабильный релиз клиента. Оптимизация интерфейса под экраны старых поколений, исправление ошибок подключения и улучшенная скорость загрузки.
             </div>
+
+            <div class="section-title">Разработчик</div>
+            
+            <div class="dev-info-row">
+                <div class="dev-info-text">
+                    <div><a href="#">Посетить веб-сайт</a></div>
+                    <div class="dev-info-sub">http://droidmarket.store/</div>
+                </div>
+            </div>
+
+            <div class="dev-info-row">
+                <div class="dev-info-text">
+                    <div>Адрес эл. почты</div>
+                    <div class="dev-info-sub"><a href="mailto:resonateintegrated@gmail.com">resonateintegrated@gmail.com</a></div>
+                </div>
+            </div>
+
+            <div class="dev-info-row">
+                <div class="dev-info-text">
+                    <div>Сообщество</div>
+                    <div class="dev-info-sub"><a href="https://t.me/resonatesourse" target="_blank">Telegram канал проекта</a></div>
+                </div>
+            </div>
+
         </div>
 
-    </div>
+        <div class="footer">
+            &copy; 2026 Resonate Store Project<br>
+            Все права сохранены. Контент предоставлен для совместимых Android устройств.
+        </div>
 
-    <div class="footer">
-        &copy; 2026 Resonate Store Project<br>
-        Все права сохранены. Контент предоставлен для совместимых Android устройств.
     </div>
 
 </body>
