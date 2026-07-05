@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonate Store</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #121212; color: #fff; }
+        
+        /* Верхняя панель */
+        .topnav { background: #000; padding: 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #33b5e5; }
+        .logo { font-weight: bold; font-size: 18px; color: #33b5e5; }
+        
+        /* Шапка с фоном */
+        .header { background: #333; padding: 20px; text-align: center; border-bottom: 2px solid #444; }
+        .header h1 { margin: 0; font-size: 20px; text-transform: uppercase; }
+        
+        /* Баннер */
+        .banner { width: 100%; text-align: center; margin-bottom: 10px; }
+        .banner img { width: 100%; height: auto; max-height: 200px; object-fit: cover; }
+        
+        /* Навигация */
+        .nav { display: flex; justify-content: space-around; background: #2c2c2c; padding: 10px; border-bottom: 1px solid #444; }
+        .nav div { font-weight: bold; cursor: pointer; color: #bdbdbd; }
+        
+        /* Сетка приложений */
+        .featured { padding: 10px; }
+        .app-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        
+        .app { 
+            width: calc(50% - 15px); background: #1e1e1e; padding: 10px; 
+            display: flex; align-items: center; border: 1px solid #333; border-radius: 4px;
+        }
+        .app img { width: 50px; height: 50px; margin-right: 10px; }
+        .app-info { font-size: 12px; }
+        .app-title { font-weight: bold; color: #33b5e5; display: block; }
 
+        /* Кнопки */
+        .download-btn {
+            display: block; width: 90%; margin: 20px auto; padding: 15px;
+            background: #33b5e5; color: #000; text-align: center; 
+            font-weight: bold; text-decoration: none; border-radius: 2px;
+        }
+
+        .footer { text-align: center; padding: 20px; font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+
+<div class="topnav">
+    <div class="logo">RESONATE</div>
+    <div>Поиск</div>
+</div>
+
+<div class="header">
+    <h1>Resonate Store Project</h1>
+</div>
+
+<div class="banner">
+    <img src="img2.jpg" alt="Banner">
+</div>
+
+<div class="nav">
+    <div>Приложения</div>
+    <div>Игры</div>
+    <div>Категории</div>
+</div>
+
+<div class="featured">
+    <h2 style="font-size: 16px; border-bottom: 1px solid #33b5e5; padding-bottom: 5px;">Популярное</h2>
+    <div class="app-list">
+        <div class="app">
+            <img src="img1.png" alt="icon">
+            <div class="app-info">
+                <span class="app-title">NotPipe</span>
+                <span>Рейтинг: 4.8 ★</span><br>
+                <span>Android 2.1+</span>
+            </div>
+        </div>
+        <div class="app">
+            <img src="img1.png" alt="icon">
+            <div class="app-info">
+                <span class="app-title">Resonate Browser</span>
+                <span>Рейтинг: 4.5 ★</span><br>
+                <span>Android 2.1+</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="download-btn">СКАЧАТЬ КЛИЕНТ</a>
+
+<div class="footer">
+    <p>Resonate Store &copy; 2026</p>
+    <p>resonateintegrated@gmail.com</p>
+</div>
+
+</body>
+</html>
