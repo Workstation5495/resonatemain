@@ -22,19 +22,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #ededed;
     color: #3f3f3f;
+    -webkit-text-size-adjust: 100%;
 }
 
 a {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-
 .market {
     width: 100%;
     min-height: 100vh;
     background: #eeeeee;
 }
-
 
 .topbar {
     height: 70px;
@@ -44,6 +43,7 @@ a {
 
     color: #fff;
 
+    background-color: #181818;
     background:
         repeating-linear-gradient(
             135deg,
@@ -52,7 +52,10 @@ a {
             rgba(0,0,0,.038) 2px,
             rgba(0,0,0,.038) 5px
         ),
-        linear-gradient(#202020, #151515);
+        linear-gradient(
+            #202020,
+            #151515
+        );
 
     border-top: 1px solid #2d2d2d;
     border-bottom: 1px solid #070707;
@@ -67,25 +70,41 @@ a {
     height: 48px;
     flex: 0 0 48px;
     margin-right: 14px;
+
+    display: block;
     object-fit: contain;
+
+    border: 0;
     border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .topbar-title {
+    min-width: 0;
+
+    color: #fff;
+
     font-size: 29px;
     line-height: 1;
     font-weight: normal;
-    color: #fff;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     text-shadow: 0 1px 1px #000;
 }
 
-
 .app-header {
     min-height: 136px;
+
     display: flex;
     align-items: center;
+
     padding: 18px 26px;
 
+    background-color: #424242;
     background:
         linear-gradient(
             to bottom,
@@ -104,12 +123,19 @@ a {
 .app-icon {
     width: 86px;
     height: 86px;
+
     flex: 0 0 86px;
+
     margin-right: 20px;
+
+    display: block;
     object-fit: contain;
-    border-radius: 0;
-    background: transparent;
+
     border: 0;
+    border-radius: 0;
+
+    background: transparent;
+
     box-shadow: none;
     filter: none;
 }
@@ -121,39 +147,51 @@ a {
 
 .app-name {
     margin: 0;
+
     color: #fff;
+
     font-size: 35px;
     line-height: 39px;
-    font-weight: bold;
+    font-weight: normal;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
     text-shadow: 0 1px 1px rgba(0,0,0,.72);
 }
 
 .app-version {
     margin-top: 5px;
+
     color: #aaa;
+
     font-size: 21px;
     line-height: 1;
-    font-weight: bold;
+    font-weight: normal;
+
     text-transform: uppercase;
+
     text-shadow: 0 1px rgba(0,0,0,.45);
 }
 
-
 .install {
     flex-shrink: 0;
+
     margin-left: 24px;
+
     padding: 10px 23px;
 
     color: #fff;
+
     font-size: 20px;
     line-height: 1;
     font-weight: normal;
+
     text-decoration: none;
     text-align: center;
 
+    background-color: #4fb3c8;
     background:
         linear-gradient(
             to bottom,
@@ -173,6 +211,7 @@ a {
 }
 
 .install:hover {
+    background-color: #4aacbf;
     background:
         linear-gradient(
             to bottom,
@@ -183,16 +222,21 @@ a {
 
 .install:active {
     background: #368ea1;
-    box-shadow: inset 0 2px 3px rgba(0,0,0,.28);
-}
 
+    box-shadow:
+        inset 0 2px 3px rgba(0,0,0,.28);
+}
 
 .description {
     padding: 25px 27px 28px;
+
     background: #f1f1f1;
+
     color: #444;
+
     font-size: 21px;
     line-height: 1.52;
+    font-weight: normal;
 }
 
 .description p {
@@ -203,12 +247,13 @@ a {
     margin-bottom: 0;
 }
 
-
 .stripe {
     height: 19px;
+
     border-top: 1px solid #cfcfcf;
     border-bottom: 1px solid #d5d5d5;
 
+    background-color: #e4e4e4;
     background:
         repeating-linear-gradient(
             135deg,
@@ -219,43 +264,56 @@ a {
         );
 }
 
-
 .section {
     padding: 27px 27px 12px;
+
     background: #f1f1f1;
 }
 
 .section-title {
     margin: 0 0 26px;
+
     color: #93a93b;
+
     font-size: 26px;
     line-height: 1;
-    font-weight: bold;
+    font-weight: normal;
+
     text-transform: uppercase;
+
     text-shadow: 0 1px #fff;
 }
 
 .section-text {
     margin: 0 0 22px;
+
     color: #444;
+
     font-size: 21px;
     line-height: 1.5;
+    font-weight: normal;
 }
-
 
 .dev-list {
     width: 100%;
+
     border-top: 1px solid #c8c8c8;
 }
 
 .dev-row {
     min-height: 92px;
+
     display: flex;
     align-items: center;
+
     padding: 9px 4px;
+
     color: #222;
+
     text-decoration: none;
+
     background: #f1f1f1;
+
     border-bottom: 1px solid #c8c8c8;
 }
 
@@ -270,6 +328,7 @@ a {
 .dev-icon {
     width: 78px;
     height: 64px;
+
     flex: 0 0 78px;
 
     display: flex;
@@ -282,7 +341,9 @@ a {
 .dev-icon svg {
     width: 51px;
     height: 51px;
+
     display: block;
+
     fill: #b7b7b7;
 }
 
@@ -293,6 +354,7 @@ a {
 
 .dev-title {
     color: #222;
+
     font-size: 22px;
     line-height: 1.25;
     font-weight: normal;
@@ -300,22 +362,26 @@ a {
 
 .dev-subtitle {
     margin-top: 4px;
+
     color: #999;
+
     font-size: 18px;
     line-height: 1.25;
+    font-weight: normal;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-
 .bottom-space {
     height: 34px;
+
     background: #eeeeee;
 }
 
-
 @media (max-width: 800px) {
+
     .topbar {
         height: 62px;
         padding: 0 17px;
@@ -324,7 +390,9 @@ a {
     .topbar-icon {
         width: 43px;
         height: 43px;
+
         flex-basis: 43px;
+
         margin-right: 12px;
     }
 
@@ -334,13 +402,16 @@ a {
 
     .app-header {
         min-height: 116px;
+
         padding: 15px 18px;
     }
 
     .app-icon {
         width: 74px;
         height: 74px;
+
         flex-basis: 74px;
+
         margin-right: 16px;
     }
 
@@ -355,7 +426,9 @@ a {
 
     .install {
         margin-left: 15px;
+
         padding: 9px 17px;
+
         font-size: 18px;
     }
 
@@ -369,17 +442,20 @@ a {
     }
 }
 
-
 @media (max-width: 520px) {
+
     .topbar {
         height: 55px;
+
         padding: 0 12px;
     }
 
     .topbar-icon {
         width: 39px;
         height: 39px;
+
         flex-basis: 39px;
+
         margin-right: 10px;
     }
 
@@ -389,14 +465,18 @@ a {
 
     .app-header {
         min-height: 99px;
+
         padding: 12px 13px;
+
         border-bottom-width: 5px;
     }
 
     .app-icon {
         width: 60px;
         height: 60px;
+
         flex-basis: 60px;
+
         margin-right: 12px;
     }
 
@@ -407,18 +487,23 @@ a {
 
     .app-version {
         margin-top: 3px;
+
         font-size: 14px;
     }
 
     .install {
         margin-left: 8px;
+
         padding: 7px 10px;
+
         border-width: 1px;
+
         font-size: 15px;
     }
 
     .description {
         padding: 18px 14px 20px;
+
         font-size: 16px;
         line-height: 1.52;
     }
@@ -433,24 +518,29 @@ a {
 
     .section-title {
         margin-bottom: 20px;
+
         font-size: 20px;
     }
 
     .section-text {
         margin-bottom: 18px;
+
         font-size: 16px;
         line-height: 1.5;
     }
 
     .dev-row {
         min-height: 72px;
+
         padding: 7px 0;
     }
 
     .dev-icon {
         width: 61px;
         height: 54px;
+
         flex-basis: 61px;
+
         margin-right: 3px;
     }
 
@@ -465,6 +555,7 @@ a {
 
     .dev-subtitle {
         margin-top: 2px;
+
         font-size: 14px;
     }
 
@@ -473,11 +564,12 @@ a {
     }
 }
 
-
 @media (max-width: 360px) {
+
     .app-icon {
         width: 53px;
         height: 53px;
+
         flex-basis: 53px;
     }
 
@@ -491,6 +583,7 @@ a {
 
     .install {
         padding: 6px 7px;
+
         font-size: 13px;
     }
 
@@ -503,6 +596,40 @@ a {
         font-size: 19px;
     }
 }
+
+@media (max-width: 330px) {
+
+    .app-header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .app-icon {
+        width: 48px;
+        height: 48px;
+
+        flex-basis: 48px;
+
+        margin-right: 9px;
+    }
+
+    .app-name {
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    .app-version {
+        font-size: 11px;
+    }
+
+    .install {
+        margin-left: 5px;
+
+        padding: 6px;
+
+        font-size: 12px;
+    }
+}
 </style>
 </head>
 
@@ -510,12 +637,19 @@ a {
 
 <div class="market">
 
-
     <header class="topbar">
-        <img src="img1.png" class="topbar-icon" alt="">
-        <div class="topbar-title">Apps</div>
-    </header>
 
+        <img
+            src="img1.png"
+            class="topbar-icon"
+            alt=""
+        >
+
+        <div class="topbar-title">
+            Resonate Store Project (Remastered)
+        </div>
+
+    </header>
 
     <section class="app-header">
 
@@ -526,8 +660,15 @@ a {
         >
 
         <div class="app-info">
-            <h1 class="app-name">Resonate Store</h1>
-            <div class="app-version">R2026.1.0</div>
+
+            <h1 class="app-name">
+                Resonate Store
+            </h1>
+
+            <div class="app-version">
+                R2026.1.0
+            </div>
+
         </div>
 
         <a
@@ -540,41 +681,39 @@ a {
 
     </section>
 
-
     <div class="description">
+
         <p>
             Resonate Store — магазин приложений для старых Android-устройств.
         </p>
 
-        <p>
-            R2026.1.0 — большой ремастер проекта. Интерфейс и основная часть
-            магазина были переработаны, исправлены старые ошибки и улучшена
-            работа загрузок, категорий и фильтров.
-        </p>
     </div>
 
     <div class="stripe"></div>
 
-
     <section class="section">
 
-        <h2 class="section-title">Что нового</h2>
+        <h2 class="section-title">
+            Что нового
+        </h2>
 
         <p class="section-text">
-            Большой ремастер Resonate Store.
+            Большой ремастер Resonate Store. R2026.1.0 — интерфейс и основная
+            часть магазина были переработаны, исправлены старые ошибки и
+            улучшена работа.
         </p>
 
     </section>
 
     <div class="stripe"></div>
 
-
     <section class="section">
 
-        <h2 class="section-title">Разработчик</h2>
+        <h2 class="section-title">
+            Разработчик
+        </h2>
 
         <div class="dev-list">
-
 
             <a
                 href="http://droidmarket.store/"
@@ -584,7 +723,12 @@ a {
             >
 
                 <div class="dev-icon">
-                    <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        aria-hidden="true"
+                    >
+
                         <path d="
                         M32 5
                         C17 5 5 17 5 32
@@ -627,16 +771,24 @@ a {
                         C30 49 28 42 27 34
                         Z
                         "/>
+
                     </svg>
+
                 </div>
 
                 <div class="dev-content">
-                    <div class="dev-title">Посетить веб-сайт</div>
-                    <div class="dev-subtitle">http://droidmarket.store/</div>
+
+                    <div class="dev-title">
+                        Посетить веб-сайт
+                    </div>
+
+                    <div class="dev-subtitle">
+                        http://droidmarket.store/
+                    </div>
+
                 </div>
 
             </a>
-
 
             <a
                 href="mailto:resonateintegrated@gmail.com"
@@ -644,7 +796,12 @@ a {
             >
 
                 <div class="dev-icon">
-                    <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        aria-hidden="true"
+                    >
+
                         <path d="
                         M7 14
                         H57
@@ -670,16 +827,24 @@ a {
                         L9 25
                         Z
                         "/>
+
                     </svg>
+
                 </div>
 
                 <div class="dev-content">
-                    <div class="dev-title">Адрес эл. почты</div>
-                    <div class="dev-subtitle">resonateintegrated@gmail.com</div>
+
+                    <div class="dev-title">
+                        Адрес эл. почты
+                    </div>
+
+                    <div class="dev-subtitle">
+                        resonateintegrated@gmail.com
+                    </div>
+
                 </div>
 
             </a>
-
 
             <a
                 href="https://t.me/resonatesourse"
@@ -689,7 +854,12 @@ a {
             >
 
                 <div class="dev-icon">
-                    <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        aria-hidden="true"
+                    >
+
                         <path d="
                         M25 30
                         C31 30 36 25 36 19
@@ -724,12 +894,21 @@ a {
                         C59 41 54 35 45 35
                         Z
                         "/>
+
                     </svg>
+
                 </div>
 
                 <div class="dev-content">
-                    <div class="dev-title">Сообщество</div>
-                    <div class="dev-subtitle">Telegram-канал проекта</div>
+
+                    <div class="dev-title">
+                        Сообщество
+                    </div>
+
+                    <div class="dev-subtitle">
+                        Telegram-канал проекта
+                    </div>
+
                 </div>
 
             </a>
