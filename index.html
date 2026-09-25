@@ -1,230 +1,782 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resonate Store</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f3f3f3;
-            color: #333333;
-            font-family: Arial, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resonate Store — R2026.1.0</title>
 
-        .wrapper {
-            width: 100%;
-            background-color: #f3f3f3;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        .top-bar {
-            background-color: #1a1a1a;
-            padding: 10px 12px;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #000000;
-            height: 48px;
-        }
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
 
-        .top-bar-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            object-fit: contain;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ededed;
+    color: #3f3f3f;
+}
 
-        .app-header-block {
-            background-color: #2c2c2c;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 4px solid #94ab3a;
-            height: 85px;
-        }
+a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
-        .app-info-left {
-            display: flex;
-            align-items: center;
-            flex-grow: 1;
-            overflow: hidden;
-        }
+/* =========================================================
+   ОСНОВА
+   ========================================================= */
 
-        .app-icon {
-            width: 56px;
-            height: 56px;
-            margin-right: 12px;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
+.market {
+    width: 100%;
+    min-height: 100vh;
+    background: #eeeeee;
+}
 
-        .app-title-box {
-            overflow: hidden;
-        }
+/* =========================================================
+   ВЕРХНЯЯ ПАНЕЛЬ — СТИЛЬ PLAY MARKET 2012
+   ========================================================= */
 
-        .app-title-box h1 {
-            margin: 0;
-            font-size: 19px;
-            font-weight: bold;
-            color: #ffffff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+.topbar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
 
-        .app-title-box p {
-            margin: 4px 0 0 0;
-            color: #999999;
-            font-size: 11px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
+    color: #fff;
 
-        .install-btn {
-            background-color: #25728a;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 6px 14px;
-            font-size: 13px;
-            font-weight: bold;
-            border: 1px solid #aaaaaa;
-            border-radius: 0px;
-            text-align: center;
-            flex-shrink: 0;
-            user-select: none;
-        }
+    background:
+        repeating-linear-gradient(
+            135deg,
+            rgba(255,255,255,.018) 0,
+            rgba(255,255,255,.018) 2px,
+            rgba(0,0,0,.038) 2px,
+            rgba(0,0,0,.038) 5px
+        ),
+        linear-gradient(#202020, #151515);
 
-        .install-btn:active {
-            background-color: #1e5b6e;
-        }
+    border-top: 1px solid #2d2d2d;
+    border-bottom: 1px solid #070707;
 
-        .content-section {
-            padding: 12px;
-            flex-grow: 1;
-        }
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 1px 2px rgba(0,0,0,.35);
+}
 
-        .description-text {
-            font-size: 13.5px;
-            line-height: 1.4;
-            color: #444444;
-            margin-bottom: 15px;
-            word-wrap: break-word;
-        }
+.topbar-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    margin-right: 14px;
+    object-fit: contain;
+    border-radius: 0;
+}
 
-        .section-title {
-            color: #94ab3a;
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin: 18px 0 6px 0;
-            border-bottom: 1px solid #dbdbdb;
-            padding-bottom: 2px;
-        }
+.topbar-title {
+    font-size: 29px;
+    line-height: 1;
+    font-weight: normal;
+    color: #fff;
+    text-shadow: 0 1px 1px #000;
+}
 
-        .dev-info-row {
-            display: block;
-            padding: 10px 4px;
-            border-bottom: 1px solid #e0e0e0;
-            font-size: 13.5px;
-            text-decoration: none;
-            color: #333333;
-        }
+/* =========================================================
+   ШАПКА ПРИЛОЖЕНИЯ
+   ========================================================= */
 
-        .dev-info-row:active {
-            background-color: #e0e0e0;
-        }
-        
-        .dev-info-row div {
-            margin-bottom: 2px;
-        }
+.app-header {
+    min-height: 136px;
+    display: flex;
+    align-items: center;
+    padding: 18px 26px;
 
-        .dev-info-sub {
-            color: #777777;
-            font-size: 11.5px;
-        }
+    background:
+        linear-gradient(
+            to bottom,
+            #494949 0%,
+            #434343 46%,
+            #3e3e3e 100%
+        );
 
-        .link-text {
-            color: #25728a;
-        }
+    border-bottom: 7px solid #94aa3a;
 
-        .footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #e5e5e5;
-            font-size: 11px;
-            color: #666666;
-            border-top: 1px solid #dbdbdb;
-            margin-top: auto;
-        }
-    </style>
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        inset 0 -1px rgba(0,0,0,.25);
+}
+
+.app-icon {
+    width: 86px;
+    height: 86px;
+    flex: 0 0 86px;
+    margin-right: 20px;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: 0 2px 3px rgba(0,0,0,.38);
+}
+
+.app-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.app-name {
+    margin: 0;
+    color: #fff;
+    font-size: 35px;
+    line-height: 39px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 1px rgba(0,0,0,.72);
+}
+
+.app-version {
+    margin-top: 5px;
+    color: #aaa;
+    font-size: 21px;
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 1px rgba(0,0,0,.45);
+}
+
+/* =========================================================
+   КНОПКА
+   ========================================================= */
+
+.install {
+    flex-shrink: 0;
+    margin-left: 24px;
+    padding: 10px 23px;
+
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #65c6d9 0%,
+            #4fb3c8 46%,
+            #3998ad 100%
+        );
+
+    border: 2px solid #d5e3e5;
+    border-radius: 0;
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.50),
+        inset 0 1px rgba(255,255,255,.35);
+
+    text-shadow: 0 1px 1px rgba(0,0,0,.35);
+}
+
+.install:hover {
+    background:
+        linear-gradient(
+            to bottom,
+            #72cede,
+            #4aacbf
+        );
+}
+
+.install:active {
+    background: #368ea1;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,.28);
+}
+
+/* =========================================================
+   ОПИСАНИЕ
+   ========================================================= */
+
+.description {
+    padding: 25px 27px 28px;
+    background: #f1f1f1;
+    color: #444;
+    font-size: 21px;
+    line-height: 1.52;
+}
+
+.description p {
+    margin: 0 0 13px;
+}
+
+.description p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   ПОЛОСАТЫЙ РАЗДЕЛИТЕЛЬ
+   ========================================================= */
+
+.stripe {
+    height: 19px;
+    border-top: 1px solid #cfcfcf;
+    border-bottom: 1px solid #d5d5d5;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #eeeeee 0,
+            #eeeeee 2px,
+            #d8d8d8 2px,
+            #d8d8d8 3px
+        );
+}
+
+/* =========================================================
+   СЕКЦИИ
+   ========================================================= */
+
+.section {
+    padding: 27px 27px 12px;
+    background: #f1f1f1;
+}
+
+.section-title {
+    margin: 0 0 26px;
+    color: #93a93b;
+    font-size: 26px;
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 1px #fff;
+}
+
+.section-text {
+    margin: 0 0 22px;
+    color: #444;
+    font-size: 21px;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   РАЗРАБОТЧИК
+   ========================================================= */
+
+.dev-list {
+    width: 100%;
+    border-top: 1px solid #c8c8c8;
+}
+
+.dev-row {
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    padding: 9px 4px;
+    color: #222;
+    text-decoration: none;
+    background: #f1f1f1;
+    border-bottom: 1px solid #c8c8c8;
+}
+
+.dev-row:hover {
+    background: #e9e9e9;
+}
+
+.dev-row:active {
+    background: #dbdbdb;
+}
+
+.dev-icon {
+    width: 78px;
+    height: 64px;
+    flex: 0 0 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 4px;
+}
+
+.dev-icon svg {
+    width: 51px;
+    height: 51px;
+    display: block;
+    fill: #b7b7b7;
+}
+
+.dev-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.dev-title {
+    color: #222;
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: normal;
+}
+
+.dev-subtitle {
+    margin-top: 4px;
+    color: #999;
+    font-size: 18px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =========================================================
+   НИЗ — БЕЗ СОВРЕМЕННОГО ФУТЕРА
+   ========================================================= */
+
+.bottom-space {
+    height: 34px;
+    background: #eeeeee;
+}
+
+/* =========================================================
+   ПЛАНШЕТЫ
+   ========================================================= */
+
+@media (max-width: 800px) {
+    .topbar {
+        height: 62px;
+        padding: 0 17px;
+    }
+
+    .topbar-icon {
+        width: 43px;
+        height: 43px;
+        flex-basis: 43px;
+        margin-right: 12px;
+    }
+
+    .topbar-title {
+        font-size: 25px;
+    }
+
+    .app-header {
+        min-height: 116px;
+        padding: 15px 18px;
+    }
+
+    .app-icon {
+        width: 74px;
+        height: 74px;
+        flex-basis: 74px;
+        margin-right: 16px;
+    }
+
+    .app-name {
+        font-size: 29px;
+        line-height: 33px;
+    }
+
+    .app-version {
+        font-size: 18px;
+    }
+
+    .install {
+        margin-left: 15px;
+        padding: 9px 17px;
+        font-size: 18px;
+    }
+
+    .description,
+    .section-text {
+        font-size: 19px;
+    }
+
+    .section-title {
+        font-size: 23px;
+    }
+}
+
+/* =========================================================
+   ТЕЛЕФОН
+   ========================================================= */
+
+@media (max-width: 520px) {
+    .topbar {
+        height: 55px;
+        padding: 0 12px;
+    }
+
+    .topbar-icon {
+        width: 39px;
+        height: 39px;
+        flex-basis: 39px;
+        margin-right: 10px;
+    }
+
+    .topbar-title {
+        font-size: 21px;
+    }
+
+    .app-header {
+        min-height: 99px;
+        padding: 12px 13px;
+        border-bottom-width: 5px;
+    }
+
+    .app-icon {
+        width: 60px;
+        height: 60px;
+        flex-basis: 60px;
+        margin-right: 12px;
+    }
+
+    .app-name {
+        font-size: 23px;
+        line-height: 26px;
+    }
+
+    .app-version {
+        margin-top: 3px;
+        font-size: 14px;
+    }
+
+    .install {
+        margin-left: 8px;
+        padding: 7px 10px;
+        border-width: 1px;
+        font-size: 15px;
+    }
+
+    .description {
+        padding: 18px 14px 20px;
+        font-size: 16px;
+        line-height: 1.52;
+    }
+
+    .stripe {
+        height: 16px;
+    }
+
+    .section {
+        padding: 21px 14px 8px;
+    }
+
+    .section-title {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    .section-text {
+        margin-bottom: 18px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .dev-row {
+        min-height: 72px;
+        padding: 7px 0;
+    }
+
+    .dev-icon {
+        width: 61px;
+        height: 54px;
+        flex-basis: 61px;
+        margin-right: 3px;
+    }
+
+    .dev-icon svg {
+        width: 43px;
+        height: 43px;
+    }
+
+    .dev-title {
+        font-size: 17px;
+    }
+
+    .dev-subtitle {
+        margin-top: 2px;
+        font-size: 14px;
+    }
+
+    .bottom-space {
+        height: 24px;
+    }
+}
+
+/* =========================================================
+   МАЛЕНЬКИЕ СТАРЫЕ ANDROID
+   ========================================================= */
+
+@media (max-width: 360px) {
+    .app-icon {
+        width: 53px;
+        height: 53px;
+        flex-basis: 53px;
+    }
+
+    .app-name {
+        font-size: 20px;
+    }
+
+    .app-version {
+        font-size: 12px;
+    }
+
+    .install {
+        padding: 6px 7px;
+        font-size: 13px;
+    }
+
+    .description,
+    .section-text {
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: 19px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="wrapper">
-        
-        <div class="top-bar">
-            <img src="img1.png" alt="Icon" class="top-bar-icon">
-            <span>Resonate Store Project</span>
+<div class="market">
+
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+    <header class="topbar">
+        <img src="img1.png" class="topbar-icon" alt="">
+        <div class="topbar-title">Apps</div>
+    </header>
+
+    <!-- ПРИЛОЖЕНИЕ -->
+    <section class="app-header">
+
+        <img
+            src="img1.png"
+            class="app-icon"
+            alt="Resonate Store"
+        >
+
+        <div class="app-info">
+            <h1 class="app-name">Resonate Store</h1>
+            <div class="app-version">R2026.1.0</div>
         </div>
 
-        <div class="app-header-block">
-            <div class="app-info-left">
-                <img src="img1.png" alt="Icon" class="app-icon">
-                <div class="app-title-box">
-                    <h1>Resonate Store</h1>
-                    <p>Версия 1.1.26 / API 7</p>
-                </div>
-            </div>
-            <a href="resonate.apk" class="install-btn">Установить</a>
-        </div>
+        <a
+            href="resonate.apk"
+            class="install"
+            download
+        >
+            Установить
+        </a>
 
-        <div class="content-section">
-            
-            <div class="description-text">
-                Легкий и быстрый клиент, созданный для того, чтобы вдохнуть жизнь в старые Android-устройства.
-            </div>
+    </section>
 
-            <div class="section-title">Что нового</div>
-            <div class="description-text" style="margin-top: 4px;">
-                улучшенный интерфейс новые функции переработана система скачивания и загрузки и категории и система фильтров и многое другое
-            </div>
+    <!-- ОПИСАНИЕ -->
+    <div class="description">
+        <p>
+            Resonate Store — магазин приложений для старых Android-устройств.
+        </p>
 
-            <div class="section-title">Разработчик</div>
-            
-            <a href="http://droidmarket.store/" class="dev-info-row" target="_blank">
-                <div>Посетить веб-сайт (благодарности)</div>
-                <div class="dev-info-sub link-text">http://droidmarket.store/</div>
-            </a>
-
-            <a href="mailto:resonateintegrated@gmail.com" class="dev-info-row">
-                <div>Адрес эл. почты</div>
-                <div class="dev-info-sub link-text">resonateintegrated@gmail.com</div>
-            </a>
-
-            <a href="https://t.me/resonatesourse" class="dev-info-row" target="_blank">
-                <div>Сообщество</div>
-                <div class="dev-info-sub link-text">Telegram канал проекта</div>
-            </a>
-
-        </div>
-
-        <div class="footer">
-            &copy; 2026 Resonate Store Project<br>
-            Все права сохранены. Контент адаптирован для старых Android устройств.
-        </div>
-
+        <p>
+            R2026.1.0 — большой ремастер проекта. Интерфейс и основная часть
+            магазина были переработаны, исправлены старые ошибки и улучшена
+            работа загрузок, категорий и фильтров.
+        </p>
     </div>
+
+    <div class="stripe"></div>
+
+    <!-- ЧТО НОВОГО -->
+    <section class="section">
+
+        <h2 class="section-title">Что нового</h2>
+
+        <p class="section-text">
+            Большой ремастер Resonate Store. Новый интерфейс, переработанные
+            загрузки, категории и фильтры. Исправлены ошибки и улучшена
+            стабильность на старых устройствах.
+        </p>
+
+    </section>
+
+    <div class="stripe"></div>
+
+    <!-- РАЗРАБОТЧИК -->
+    <section class="section">
+
+        <h2 class="section-title">Разработчик</h2>
+
+        <div class="dev-list">
+
+            <!-- ВЕБ-САЙТ -->
+            <a
+                href="http://droidmarket.store/"
+                class="dev-row"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <div class="dev-icon">
+                    <svg viewBox="0 0 64 64" aria-hidden="true">
+                        <path d="
+                        M32 5
+                        C17 5 5 17 5 32
+                        C5 47 17 59 32 59
+                        C47 59 59 47 59 32
+                        C59 17 47 5 32 5
+                        Z
+
+                        M28 11
+                        C24 16 22 22 21 28
+                        H11
+                        C12 20 19 13 28 11
+                        Z
+
+                        M36 11
+                        C45 13 52 20 53 28
+                        H43
+                        C42 22 40 16 36 11
+                        Z
+
+                        M20 34
+                        C21 41 23 48 28 53
+                        C19 51 12 44 11 34
+                        Z
+
+                        M44 34
+                        H53
+                        C52 44 45 51 36 53
+                        C41 47 43 41 44 34
+                        Z
+
+                        M27 28
+                        C28 20 30 14 32 11
+                        C34 14 36 20 37 28
+                        Z
+
+                        M27 34
+                        H37
+                        C36 42 34 49 32 53
+                        C30 49 28 42 27 34
+                        Z
+                        "/>
+                    </svg>
+                </div>
+
+                <div class="dev-content">
+                    <div class="dev-title">Посетить веб-сайт</div>
+                    <div class="dev-subtitle">http://droidmarket.store/</div>
+                </div>
+
+            </a>
+
+            <!-- EMAIL -->
+            <a
+                href="mailto:resonateintegrated@gmail.com"
+                class="dev-row"
+            >
+
+                <div class="dev-icon">
+                    <svg viewBox="0 0 64 64" aria-hidden="true">
+                        <path d="
+                        M7 14
+                        H57
+                        C59 14 60 15 60 17
+                        V47
+                        C60 49 59 50 57 50
+                        H7
+                        C5 50 4 49 4 47
+                        V17
+                        C4 15 5 14 7 14
+                        Z
+
+                        M9 19
+                        L32 35
+                        L55 19
+                        Z
+
+                        M9 45
+                        H55
+                        V25
+                        L34 40
+                        C33 41 31 41 30 40
+                        L9 25
+                        Z
+                        "/>
+                    </svg>
+                </div>
+
+                <div class="dev-content">
+                    <div class="dev-title">Адрес эл. почты</div>
+                    <div class="dev-subtitle">resonateintegrated@gmail.com</div>
+                </div>
+
+            </a>
+
+            <!-- СООБЩЕСТВО -->
+            <a
+                href="https://t.me/resonatesourse"
+                class="dev-row"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <div class="dev-icon">
+                    <svg viewBox="0 0 64 64" aria-hidden="true">
+                        <path d="
+                        M25 30
+                        C31 30 36 25 36 19
+                        C36 13 31 8 25 8
+                        C19 8 14 13 14 19
+                        C14 25 19 30 25 30
+                        Z
+
+                        M25 34
+                        C13 34 6 40 6 50
+                        V55
+                        H44
+                        V50
+                        C44 40 37 34 25 34
+                        Z
+
+                        M44 31
+                        C49 31 53 27 53 22
+                        C53 17 49 13 44 13
+                        C42 13 40 14 38 15
+                        C39 17 40 20 40 22
+                        C40 25 39 28 37 30
+                        C39 31 41 31 44 31
+                        Z
+
+                        M45 35
+                        C43 35 42 35 40 36
+                        C45 40 48 45 48 52
+                        V55
+                        H59
+                        V50
+                        C59 41 54 35 45 35
+                        Z
+                        "/>
+                    </svg>
+                </div>
+
+                <div class="dev-content">
+                    <div class="dev-title">Сообщество</div>
+                    <div class="dev-subtitle">Telegram-канал проекта</div>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <div class="stripe"></div>
+    <div class="bottom-space"></div>
+
+</div>
 
 </body>
 </html>
