@@ -82,7 +82,7 @@ a {
     color: #fff;
     font-size: 29px;
     line-height: 1;
-    font-weight: normal;
+    font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -317,9 +317,27 @@ a {
     text-overflow: ellipsis;
 }
 
-.bottom-space {
-    height: 34px;
+.project-info {
+    padding: 24px 27px 30px;
     background: #eeeeee;
+    border-top: 1px solid #f8f8f8;
+    color: #888;
+}
+
+.project-info-title {
+    margin: 0 0 6px;
+    color: #666;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: bold;
+}
+
+.project-info-text {
+    margin: 0;
+    color: #999;
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: normal;
 }
 
 @media (max-width: 800px) {
@@ -374,6 +392,14 @@ a {
 
     .section-title {
         font-size: 23px;
+    }
+
+    .project-info-title {
+        font-size: 17px;
+    }
+
+    .project-info-text {
+        font-size: 15px;
     }
 }
 
@@ -476,8 +502,17 @@ a {
         font-size: 14px;
     }
 
-    .bottom-space {
-        height: 24px;
+    .project-info {
+        padding: 18px 14px 22px;
+    }
+
+    .project-info-title {
+        font-size: 15px;
+    }
+
+    .project-info-text {
+        font-size: 13px;
+        line-height: 1.4;
     }
 }
 
@@ -814,7 +849,18 @@ a {
     </section>
 
     <div class="stripe"></div>
-    <div class="bottom-space"></div>
+
+    <div class="project-info">
+
+        <p class="project-info-title">
+            Resonate Store Project · 2026
+        </p>
+
+        <p class="project-info-text">
+            Ремастер магазина приложений для старых Android-устройств.
+        </p>
+
+    </div>
 
 </div>
 
